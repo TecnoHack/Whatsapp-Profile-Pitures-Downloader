@@ -7,7 +7,7 @@ tlfn = raw_input("Tlfn number (Ej: 34123985643):  ")
 
 # cookie
 cookie = "" # <--- Aqui va la cookie
-cookie = str(cookie) # pasar el valor de la cookie a string por el aque de los numeros
+cookie = str(cookie)
 
 # i original (numero de la segunda variable de la app web de la url)
 i = 1410000000
@@ -20,12 +20,14 @@ while (i < 1439999999): # loop para recorrer todas las posibiidades del valor i.
 	print("\n")
 	opener = urllib2.build_opener()
 	opener.addheaders.append(("Cookie", "cookiename=" + cookie)) # Asignar Cookie
-	f = f = opener.open(url) # urllib establece y descarga la url
-	result = f.read() #leemos el contenido de la pagina
+	f = opener.open(url) # urllib establece y descarga la url
+	result = f.read() # leemos el contenido de la pagina
 	if (result != ""): # si no hay foto, la pagina esta vacia (si no lo esta muestra el mensage encontrado [convendria que ahi parase el sript pero, como? {return Fase?}])
 		print("Encontrado!")
-	 	os.system("wget " + url) # hacemos que wget descargue la pagina (conviene hacerlo tambien con urllib por el asunto de la cookie)
-	else: # si el contenido de la pagina esta en blanco, continua con el siguiente valor de i
+		file = open("profilePicture.html", "w") # creamos el archivo profilePicture.html ...
+		file.write(result) # ... y escribimos el contenido de result (linea 24) en profilePicture.html
+		file.close() # cerramos el archivo file
+	else: # si el contenido de la pagina esta en blanco, continua (continue) con el siguiente valor de i
 	 	continue
 
 print("No se encontro foto de perfil... :(")

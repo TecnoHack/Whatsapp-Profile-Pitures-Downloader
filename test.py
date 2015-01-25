@@ -6,7 +6,7 @@ import urllib2
 tlfn = raw_input("Tlfn number (Ej: 34123985643):  ")
 
 # cookie
-cookie = "" # <--- Aqui va la cookie
+cookie = "cookieValue" # <--- Aqui va la cookie
 cookie = str(cookie)
 
 # i original (numero de la segunda variable de la app web de la url)

@@ -7,7 +7,7 @@ tlfn = raw_input("Tlfn number (Ej: 34123985643):  ")
 
 # cookie
 cookie = "" # <--- Aqui va la cookie
-cookie = str(cookie)
+cookie = str(cookie) # pasar el valor de la cookie a string por el aque de los numeros
 
 # i original (numero de la segunda variable de la app web de la url)
 i = 1410000000
